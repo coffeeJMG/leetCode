@@ -5,23 +5,34 @@
 var generate = function(numRows) {
     let answer = [];
 
-    for (let i = 0; i < numRows; i++) {
-        if (i === 0) {
-            answer.push([1]);
-        } else {
-           
-             let leftArray = answer[i - 1].slice(); 
-             let rightArray = answer[i - 1].slice();
-             rightArray.push(0);
-             leftArray.unshift(0);
-
-             let currentArray = [];
-             for (let j = 0; j < leftArray.length; j++) {
-                 currentArray.push(leftArray[j] + rightArray[j]);
+    for(let i=0; i<=numRows-1; i++){
+        
+         let array = [];
+        
+         if(i===0){
+             answer.push([1])
+         }else if(i===1){
+                             
+             answer.push([1,1])
+         }else {
+             
+             let lastArray = answer[i-1]
+             array.push(1)
+             
+             
+             for(let j=1; j<=lastArray.length-1; j++){
+                 
+                 array.push(lastArray[j-1]+lastArray[j])
              }
-            answer.push(currentArray);
-            
-        }
+             
+             array.push(1)
+             
+             answer.push(array)
+             
+         }
+        
+        
+        
     }
 
     return answer;
