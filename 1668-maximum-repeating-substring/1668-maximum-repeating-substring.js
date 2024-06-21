@@ -6,27 +6,22 @@
 var maxRepeating = function(sequence, word) {
     
     let answer =0;
+    let repeatWord ="";
     
-    
-    for(let i=0; i<sequence.length; i++){
+    while(true){
         
-        let count =0;
+        repeatWord +=word
         
-        for(j=i; j<sequence.length; j+=word.length){
+        if(sequence.includes(repeatWord)){
             
-                if(sequence.substr(j,word.length) !==word){
-                    
-                    break;
-                }
+            answer ++
+        }else {
             
-                count++
-            
+            break;
         }
         
-        if(count>answer){
-            
-            answer = count;
-        }
+        
+        
     }
     
     return answer
