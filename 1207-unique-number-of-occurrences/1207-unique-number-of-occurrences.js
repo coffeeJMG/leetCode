@@ -4,33 +4,30 @@
  */
 var uniqueOccurrences = function(arr) {
     
-    let dictionary = {};
-    let answer = true
+    let array = {}
+   
     
     
-    for (let i = 0; i < arr.length; i++) {
+    
+   for (let i = 0; i < arr.length; i++) {
+        let item = arr[i];
+
         
-        if (!dictionary[arr[i]]) {
-            dictionary[arr[i]] = 1; 
+        if (!array[item]) {
+            array[item] = 1; 
         } else {
-            dictionary[arr[i]] += 1; 
+            array[item]++; 
         }
     }
     
+    const occurrences = Object.values(array);
+    // 객체의 value 값으로 새로운 배열반환
     
-   
-    const occurrences = Object.values(dictionary);
-
+    console.log(occurrences)
     
     const uniqueOccurrences = new Set(occurrences);
-
+    // 배열의 중복 제거 하는 Set 생성 
     
-    return uniqueOccurrences.size === occurrences.length;
-    
-    
+    return occurrences.length===uniqueOccurrences.size
     
 };
-
-
-// 객체에 index 값 : 횟수로 저장
-// 객체 내의 value 가 중복이 있는 지 검사 
